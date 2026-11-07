@@ -6,7 +6,7 @@
  */
 import MetaIcon from "@components/atoms/display/MetaIcon.astro";
 import I18nKey from "@i18n/i18nKey";
-import { i18n } from "@i18n/translation";
+import { getTranslation } from "@i18n/translation";
 import { formatDateToYYYYMMDD } from "@utils/date-utils";
 import { getSiteStats } from "@utils/site-stats";
 import { seriesConfig } from "@/config";
@@ -31,29 +31,31 @@ const fmt = (n: number) => n.toLocaleString("en-US");
 const lastActivityText = stats.lastActivity
 	? formatDateToYYYYMMDD(new Date(stats.lastActivity))
 	: "—";
-const todayText = i18n(I18nKey.statsToday);
-const yesterdayText = i18n(I18nKey.statsYesterday);
-const daysAgoText = i18n(I18nKey.statsDaysAgo);
+// 统计 widget 固定英文文案（用户偏好）：直接取主题英文词典，与原版一致
+const t = getTranslation("en");
+const todayText = t[I18nKey.statsToday];
+const yesterdayText = t[I18nKey.statsYesterday];
+const daysAgoText = t[I18nKey.statsDaysAgo];
 
 const rows = [
 	{
 		icon: "material-symbols:article-outline-rounded",
-		label: i18n(I18nKey.statsPosts),
+		label: t[I18nKey.statsPosts],
 		value: fmt(stats.posts),
 	},
 	{
 		icon: "material-symbols:forum-outline-rounded",
-		label: i18n(I18nKey.moments),
+		label: t[I18nKey.moments],
 		value: fmt(stats.moments),
 	},
 	{
 		icon: "material-symbols:folder-outline-rounded",
-		label: i18n(I18nKey.categories),
+		label: t[I18nKey.categories],
 		value: fmt(stats.categories),
 	},
 	{
 		icon: "material-symbols:tag-rounded",
-		label: i18n(I18nKey.tags),
+		label: t[I18nKey.tags],
 		value: fmt(stats.tags),
 	},
 	// 系列功能关闭时不产出统计行（零额外负担）
@@ -61,31 +63,31 @@ const rows = [
 		? [
 				{
 					icon: "material-symbols:auto-stories-outline-rounded",
-					label: i18n(I18nKey.series),
+					label: t[I18nKey.series],
 					value: fmt(stats.series),
 				},
 			]
 		: []),
 	{
 		icon: "material-symbols:edit-note-outline-rounded",
-		label: i18n(I18nKey.statsWords),
+		label: t[I18nKey.statsWords],
 		value: fmt(stats.words),
 	},
 	{
 		icon: "material-symbols:calendar-month-outline-rounded",
-		label: i18n(I18nKey.statsDays),
+		label: t[I18nKey.statsDays],
 		value: fmt(stats.days),
 	},
 	{
 		icon: "material-symbols:update-rounded",
-		label: i18n(I18nKey.statsUpdated),
+		label: t[I18nKey.statsUpdated],
 		value: lastActivityText,
 		relative: true,
 	},
 ];
 ---
 
-<WidgetLayout name={i18n(I18nKey.stats)} id="site-stats" class={className} style={style}>
+<WidgetLayout name={t[I18nKey.stats]} id="site-stats" class={className} style={style}>
 	<ul class="m3-site-stats">
 		{rows.map((row) => (
 			<li class="m3-site-stats__row">

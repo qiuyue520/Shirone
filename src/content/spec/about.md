@@ -1,26 +1,24 @@
-# About Shirone
+# この練習室について
 
-Welcome to the demo site of **Shirone** (白音) — an expressive, anime-inspired blog theme built on the **Material 3 Expressive (M3E)** design system.
+ここは **星乃一歌** のブログです。ギターとアンプ、そしてたくさんの Miku グッズに囲まれた、小さな小さな練習室。
 
-::github{repo="LyraVoid/Shirone"}
+> Just like Miku, I want to connect everyone!
+> Mikuのように、歌でみんなをつなぎたい。
 
-## ✦ Design & Philosophy
+## ✦ Leo/need について
 
-Shirone aims to combine the warmth of expressive anime aesthetics with the rigor of modern web engineering:
+Leo/need（レオニード）は、幼馴染の四人で結成したバンド：
+ボーカル＆ギター **星乃一歌**、キーボード **天馬咲希**、ベース **望月穂波**、ドラム **日野森志歩**。
 
-- **Dynamic Chromatic Spell**: Full dynamic HCT palette generation responding seamlessly to light/dark modes and user preferences with zero layout shifts.
-- **Seamless Shell Navigation**: Persistent application shell driven by Swup for continuous music playback, smooth page transitions, and preserved state.
-- **Rich Story Grimoire**: Markdown and MDX authoring with KaTeX math, Mermaid diagrams, interactive admonitions, expressive code blocks, and adaptive image galleries.
-- **Zero Extra Burden**: Optional integrations (comments, analytics, music widgets) load dynamically on demand — zero DOM footprint and zero bundle overhead when disabled.
+バンド名の由来は、子供の頃に四人で見上げた獅子座流星群。
 
-## ✦ Tech Stack
+## ✦ ここで書くこと
 
-- **Framework**: [Astro 7](https://astro.build/) & [Svelte 5](https://svelte.dev/) (Runes-driven islands)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) & [Stylus](https://stylus-lang.com/)
-- **Design Standard**: [Material 3 Expressive](https://m3.material.io/)
-- **Typography**: Outfit & Yozai (悠哉圆体) with automated build-time subsetting
-- **Search Engine**: [Pagefind](https://pagefind.app/) offline full-text search
+- バンド練習の日常とライブの感想
+- Miku と電子音楽のこと
+- 星空、天気、そしてレイクプラシッドブルー色の空
 
-## ✦ Credits
+## ✦ クレジット
 
-- **Font**: [Yozai Font (悠哉字体)](https://github.com/lxgw/yozai-font) by [lxgw](https://github.com/lxgw)
+- テーマ：[Shirone](https://github.com/LyraVoid/Shirone) — Material 3 Expressive 搭載のアニメ風ブログテーマ（MIT）
+- サイトの配色：一歌のイメージカラー **#33AAEE（ピーコックブルー）** から生成した HCT ダイナミックパレット

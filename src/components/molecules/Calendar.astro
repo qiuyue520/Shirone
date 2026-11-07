@@ -1,8 +1,7 @@
 ---
 import I18nKey from "@i18n/i18nKey";
-import { i18n } from "@i18n/translation";
+import { getTranslation } from "@i18n/translation";
 import { getCalendarData } from "@utils/calendar-data";
-import { siteConfig } from "@/config/siteConfig";
 import type { CalendarWidget } from "@/types/sidebarConfig";
 /**
  * 月度文章历侧栏 widget（数据驱动）。
@@ -24,21 +23,22 @@ const style = Astro.props.style;
 
 const startOfWeek = Astro.props.widget?.startOfWeek ?? "mon";
 
-// siteConfig.lang 形如 zh_CN / en：替换为 BCP47 供 Intl 使用
-const locale = siteConfig.lang.replace("_", "-");
+// 日历 widget 固定英文（用户偏好）：月份/星期由 Intl 以 en 输出，与原版一致
+const locale = "en";
+const t = getTranslation("en");
 
 const { postsByDate, activeMonths } = await getCalendarData();
 ---
 
-<WidgetLayout name={i18n(I18nKey.calendar)} id="calendar" class={className} style={style}>
+<WidgetLayout name={t[I18nKey.calendar]} id="calendar" class={className} style={style}>
 	<CalendarView
 		client:visible
 		{locale}
 		{startOfWeek}
 		{postsByDate}
 		{activeMonths}
-		backTodayLabel={i18n(I18nKey.calendarBackToday)}
-		prevMonthLabel={i18n(I18nKey.calendarPrevMonth)}
-		nextMonthLabel={i18n(I18nKey.calendarNextMonth)}
+		backTodayLabel={t[I18nKey.calendarBackToday]}
+		prevMonthLabel={t[I18nKey.calendarPrevMonth]}
+		nextMonthLabel={t[I18nKey.calendarNextMonth]}
 	/>
 </WidgetLayout>
