@@ -51,25 +51,26 @@ export const fontConfig: FontConfig = withUserConfig("font", {
 	fontFamilies: [
 		// ---------------------------------------------------------------------
 		// 1. 正文字体（现代几何圆润西文字体 Outfit，与 M3E 大圆角及悠哉圆体绝配）
+		//    本地 woff2（从 @fontsource/outfit 包内拷贝），离线构建零外网请求
 		// ---------------------------------------------------------------------
 		{
 			id: "outfit-body",
 			family: "Outfit",
 			role: "body",
-			source: "fontsource",
+			source: "local",
 			variants: [
 				{
-					file: "@fontsource/outfit/400.css",
+					file: "src/assets/fonts/Outfit-latin-400-normal.woff2",
 					weight: 400,
 					style: "normal",
 				},
 				{
-					file: "@fontsource/outfit/500.css",
+					file: "src/assets/fonts/Outfit-latin-500-normal.woff2",
 					weight: 500,
 					style: "normal",
 				},
 				{
-					file: "@fontsource/outfit/700.css",
+					file: "src/assets/fonts/Outfit-latin-700-normal.woff2",
 					weight: 700,
 					style: "normal",
 				},
@@ -101,20 +102,21 @@ export const fontConfig: FontConfig = withUserConfig("font", {
 
 		// ---------------------------------------------------------------------
 		// 3. 代码等宽字体（渲染代码块与终端文本，对应 CSS 变量 --font-mono）
+		//    本地可变字重 woff2（从 @fontsource-variable/jetbrains-mono 包内拷贝）
 		// ---------------------------------------------------------------------
 		{
 			id: "jetbrains-mono",
 			family: "JetBrains Mono",
 			role: "mono",
-			source: "fontsource",
+			source: "local",
 			variants: [
 				{
-					file: "@fontsource-variable/jetbrains-mono/index.css",
+					file: "src/assets/fonts/JetBrainsMono-latin-wght-normal.woff2",
 					weight: "100 800",
 					style: "normal",
 				},
 				{
-					file: "@fontsource-variable/jetbrains-mono/wght-italic.css",
+					file: "src/assets/fonts/JetBrainsMono-latin-wght-italic.woff2",
 					weight: "100 800",
 					style: "italic",
 				},

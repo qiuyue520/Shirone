@@ -8,7 +8,8 @@ export function getFontFallbackOptions(
 	role: FontRole,
 	hasMonoCjk: boolean,
 ): { fallbacks?: string[]; optimizedFallbacks?: boolean } {
-	return role === "body" || role === "cjk" || (role === "mono" && hasMonoCjk)
-		? { fallbacks: [], optimizedFallbacks: false }
-		: {};
+	// 全角色关闭 Astro 自动 fallback 度量优化：该优化在 buildStart 需要
+	// 联网拉取字体度量数据（离线/沙箱环境会直接失败），且主题自行拼接
+	// fallback 栈，自动插入的第二层 fallback 反而会插在组合之前。
+	return { fallbacks: [], optimizedFallbacks: false };
 }
